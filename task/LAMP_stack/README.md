@@ -1,36 +1,30 @@
-Role Name
+LAMP stack role
 =========
 
-A brief description of the role goes here.
+to install and configure LAMP stack elements (apache2 , mysql, php)
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+to run the playbook use the following command
+$ ansible-playbook playbook.yaml -i inventory --ask-vault-pass
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+##for vault password please contact author
 
 License
 -------
 
 BSD
+
+running
+-------
+
+the role itself contain a main.yml task file which has the include option depending on different os family, due to difference in service and packages manager between debian and redhat distros
+
+an index file can be found in the templates folder where you can test the apache server and the php script processor
+
+
 
 Author Information
 ------------------
