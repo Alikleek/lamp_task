@@ -1,0 +1,9 @@
+- block:
+
+  - include_tasks: lamp_apt.yaml
+    when: ansible_os_family == "Debian"
+  - include_tasks: lamp_yum.yaml
+    when: ansible_os_family == "RedHat"
+  become: yes
+  
+  

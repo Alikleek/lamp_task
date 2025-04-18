@@ -1,0 +1,3 @@
+[inventory]
+ubuntu ansible_host=192.168.232.42 ansible_user=kleek ansible_connection=ssh ansible_become_pass=2599813699 ansible_password=2599813699
+

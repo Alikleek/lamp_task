@@ -1,0 +1,46 @@
+
+- name: install httpd server
+  yum:
+    name: httpd
+    state: present
+
+- name: install mysql server
+  yum:
+    name: mysql-server
+    state: present
+
+- name: install php
+  yum:
+    name: php
+    state: present
+
+- name: start httpd service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: start mysql service
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+
+- name: configure apache
+  template:
+    src: httpd.conf
+    dest: /etc/httpd/httpd.conf
+  notify: restart apache
+
+
+- name: allow port 53 in firewall
+  ansible.posix.firewalld:
+    port: 53
+    permanent: true
+    state: enabled
+- name: allow port 443 in firewall
+  ansible.posix.firewalld:
+    port: 443
+    permanent: true
+    state: enabled
